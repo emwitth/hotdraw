@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Tool } from '../tool';
 import { Selector } from '../selector';
-import { Square } from '../square';
-import { Circle } from '../circle';
-import { Line } from '../line';
+import { SquareTool } from '../square';
+import { CircleTool } from '../circle';
+import { LineTool } from '../line';
 import { Pencil } from '../pencil';
 import { Remove } from '../remove';
 
@@ -15,9 +15,9 @@ import { Remove } from '../remove';
 export class DrawingToolComponent implements OnInit {
 
   selector: Selector = new Selector();
-  square: Square = new Square();
-  circle: Circle = new Circle();
-  line: Line = new Line();
+  square: SquareTool = new SquareTool();
+  circle: CircleTool = new CircleTool();
+  line: LineTool = new LineTool();
   pencil: Pencil = new Pencil();
   remove: Remove = new Remove();
 

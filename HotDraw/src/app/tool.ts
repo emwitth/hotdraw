@@ -6,5 +6,5 @@ export interface Tool {
 
     getName(): string;
 
-    performAction(shapes: Shape[], startPoint: Point, endPoint: Point): void;
+    performAction(shapes: Shape[], startPoint: Point, endPoint: Point): any;
 }

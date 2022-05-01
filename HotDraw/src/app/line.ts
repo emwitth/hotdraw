@@ -2,7 +2,7 @@ import { Point } from "./point";
 import { Shape } from "./shape";
 import { Tool } from "./tool";
 
-export class Line implements Tool{
+export class LineTool implements Tool{
     name: string = 'line';
     
     getName(): string {

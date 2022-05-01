@@ -1,0 +1,31 @@
+<h2 class="button-header"> Tools </h2>
+<button 
+[ngClass]="{'selectedButton': selectedTool.getName() == 'selector', 'selectableButton': selectedTool.getName() != 'selector'}"
+(click)="selectCurrentTool('selector')">
+    Selector
+</button>
+<button 
+[ngClass]="{'selectedButton': selectedTool.getName() == 'square', 'selectableButton': selectedTool.getName() != 'square'}"
+(click)="selectCurrentTool('square')">
+    Square
+</button>
+<button 
+[ngClass]="{'selectedButton': selectedTool.getName() == 'circle', 'selectableButton': selectedTool.getName() != 'circle'}"
+(click)="selectCurrentTool('circle')">
+    Circle
+</button>
+<button
+[ngClass]="{'selectedButton': selectedTool.getName() == 'line', 'selectableButton': selectedTool.getName() != 'line'}"
+(click)="selectCurrentTool('line')">
+    Line
+</button>
+<button 
+[ngClass]="{'selectedButton': selectedTool.getName() == 'pencil', 'selectableButton': selectedTool.getName() != 'pencil'}"
+(click)="selectCurrentTool('pencil')">
+    Pencil
+</button>
+<button 
+[ngClass]="{'selectedButton': selectedTool.getName() == 'remove', 'selectableButton': selectedTool.getName() != 'remove'}"
+(click)="selectCurrentTool('remove')">
+    Remove
+</button>

@@ -1,0 +1,31 @@
+.button-header{
+    color: #000045;
+    font-family: Tahoma;
+}
+    
+
+.selectableButton {
+    background-color: white;
+    border-color: #000045;
+    color: #000045;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.selectedButton {
+    background-color: #000045;
+    border-color: #000045;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

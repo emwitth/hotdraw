@@ -6,6 +6,7 @@ import { CircleTool } from '../circle';
 import { LineTool } from '../line';
 import { Pencil } from '../pencil';
 import { Remove } from '../remove';
+import { DrawingToolService } from '../drawing-tool.service';
 
 @Component({
   selector: 'app-drawing-tool',
@@ -25,22 +26,24 @@ export class DrawingToolComponent implements OnInit {
   tools: Map<string, Tool> = new Map();
   
 
-  constructor() { 
-    this.tools.set(this.selector.getName(), this.selector);
-    this.tools.set(this.square.getName(), this.square);
-    this.tools.set(this.circle.getName(), this.circle);
-    this.tools.set(this.line.getName(), this.line);
-    this.tools.set(this.pencil.getName(), this.pencil);
-    this.tools.set(this.remove.getName(), this.remove);
-    this.selectedTool = this.selector;
+  constructor(private drawingToolService: DrawingToolService) {
+    this.selectedTool = new Selector();
+    // this.tools.set(this.selector.getName(), this.selector);
+    // this.tools.set(this.square.getName(), this.square);
+    // this.tools.set(this.circle.getName(), this.circle);
+    // this.tools.set(this.line.getName(), this.line);
+    // this.tools.set(this.pencil.getName(), this.pencil);
+    // this.tools.set(this.remove.getName(), this.remove);
+    // this.selectedTool = this.selector;
   }
 
   ngOnInit(): void {
   }
 
-  selectCurrentTool(tool: string) {
-    var selected = this.tools.get(tool);
-    this.selectedTool =  selected != undefined ? selected : this.selector; 
+  click() {
+    this.drawingToolService.changeTool(this.selectedTool);
+    // var selected = this.tools.get(tool);
+    // this.selectedTool =  selected != undefined ? selected : this.selector; 
   }
 
 }

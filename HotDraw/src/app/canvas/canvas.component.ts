@@ -21,6 +21,8 @@ export class CanvasComponent implements OnInit, AfterViewInit {
   drawingTool : Tool = new Selector();
   startPoint: Point = new Point(0,0);
   endPoint: Point = new Point(0,0);
+  height = 400;
+  width = 800; 
   xMultiplyer = 0;
   yMultiplyer = 0;
 
@@ -33,8 +35,9 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     console.log(this.canvas)
     console.log(this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     console.log(this.canvas.nativeElement.clientWidth, this.canvas.nativeElement.clientHeight);
-    this.xMultiplyer = this.canvas.nativeElement.width/this.canvas.nativeElement.clientWidth;
-    this.yMultiplyer = this.canvas.nativeElement.height/this.canvas.nativeElement.clientHeight;
+    console.log(this.width, this.height);
+    this.xMultiplyer = this.canvas.nativeElement.width/this.width;
+    this.yMultiplyer = this.canvas.nativeElement.height/this.height;
     console.log(this.xMultiplyer, this.yMultiplyer);
   }
 
@@ -54,6 +57,8 @@ export class CanvasComponent implements OnInit, AfterViewInit {
                 (event.clientY-this.canvas.nativeElement.offsetTop)*this.yMultiplyer);
     this.startPoint = new Point((event.clientX-this.canvas.nativeElement.offsetLeft)*this.xMultiplyer,
                               (event.clientY-this.canvas.nativeElement.offsetTop)*this.yMultiplyer);
+    this.pen.strokeStyle = 'black';
+    this.pen.strokeRect(this.startPoint.x, this.startPoint.y, 1, 1);
   }
 
   up(event: MouseEvent) {

@@ -37,7 +37,6 @@ export class Square implements Shape {
         console.log("Drawing Square", this.startPoint, this.endPoint)
         pen.strokeStyle = 'red';
         pen.strokeRect(this.startPoint.x, this.startPoint.y, this.endPoint.x-this.startPoint.x, this.endPoint.y-this.startPoint.y);
-        // pen.strokeRect(144,115,333,243);
         pen.closePath();
     }
 }

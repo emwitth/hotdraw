@@ -1,10 +1,7 @@
 import { Point } from './../point';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { fromEvent, Observable, Subscription } from 'rxjs';
 import { DrawingToolService } from '../drawing-tool.service';
 import { Shape } from '../shape';
-import { Circle } from '../circle';
-import { Square } from '../square';
 import { Tool } from '../tool';
 import { Selector } from '../selector';
 
@@ -32,6 +29,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.pen = this.canvas.nativeElement.getContext('2d');
+    this.pen.lineWidth = 2;
     console.log(this.canvas)
     console.log(this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     console.log(this.canvas.nativeElement.clientWidth, this.canvas.nativeElement.clientHeight);

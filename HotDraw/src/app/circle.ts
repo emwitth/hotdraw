@@ -30,7 +30,9 @@ export class Circle implements Shape {
     }
 
     isInBoundingBox(boundingBox: Point) : boolean {
-        return (boundingBox.x >= (this.startPoint.x - this.radius) && boundingBox.y >= (this.startPoint.y - this.radius));
+        return ((boundingBox.x - this.startPoint.x) * (boundingBox.x - this.startPoint.x) + 
+                (boundingBox.y - this.startPoint.y) * (boundingBox.y - this.startPoint.y)
+                <= this.radius*this.radius);
     }
 
     setNewPosition(newPoint: Point) {

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 import { DrawingToolService } from '../drawing-tool.service';
 import { Shape } from '../shape';
 import { Circle } from '../circle';
@@ -18,7 +19,6 @@ export class CanvasComponent implements OnInit, AfterViewInit {
   //default tool is selector;
   drawingTool : Tool = new Selector();
 
-
   constructor(private drawingToolService: DrawingToolService) {
     this.shapes = [];
   }
@@ -28,11 +28,13 @@ export class CanvasComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.drawingToolService.toolChange.subscribe(currentTool => {
+      this.drawingTool = currentTool;
+    });
+  }
+
+  test(test: MouseEvent) {
+    console.log(test.clientX, test.clientY);
     
   }
-
-  test() {
-    console.log("MouseDown!");
-  }
-
 }

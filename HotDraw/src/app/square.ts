@@ -9,8 +9,10 @@ export class SquareTool implements Tool{
         return this.name;
     }
     
-    performAction(shapes: Shape[], startPoint: Point, endPoint: Point): void {
-        
+    performAction(shapes: Shape[], startPoint: Point, endPoint: Point): Shape[] {
+        var square: Square = new Square(startPoint, endPoint);
+        shapes.push(square);
+        return shapes;
     }
 }
 
@@ -32,9 +34,10 @@ export class Square implements Shape {
     }
     
     draw(pen : CanvasRenderingContext2D) {
+        console.log("Drawing Square", this.startPoint, this.endPoint)
         pen.strokeStyle = 'red';
-        pen.strokeRect(this.startPoint.x, this.startPoint.y, this.endPoint.x -
-            this.startPoint.x, this.endPoint.y - this.startPoint.y);
+        pen.strokeRect(this.startPoint.x, this.startPoint.y, this.endPoint.x-this.startPoint.x, this.endPoint.y-this.startPoint.y);
+        // pen.strokeRect(144,115,333,243);
         pen.closePath();
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Tool } from '../tool';
 import { Selector } from '../selector';
 import { SquareTool } from '../square';
@@ -14,7 +14,11 @@ import { DrawingToolService } from '../drawing-tool.service';
   styleUrls: ['./drawing-tool.component.css']
 })
 export class DrawingToolComponent implements OnInit {
-
+  @HostListener('click')
+  click() {
+    console.log(this.selectedTool.getName())
+    this.drawingToolService.changeTool(this.selectedTool);
+  }
   selector: Selector = new Selector();
   square: SquareTool = new SquareTool();
   circle: CircleTool = new CircleTool();
@@ -28,22 +32,21 @@ export class DrawingToolComponent implements OnInit {
 
   constructor(private drawingToolService: DrawingToolService) {
     this.selectedTool = new Selector();
-    // this.tools.set(this.selector.getName(), this.selector);
-    // this.tools.set(this.square.getName(), this.square);
-    // this.tools.set(this.circle.getName(), this.circle);
-    // this.tools.set(this.line.getName(), this.line);
-    // this.tools.set(this.pencil.getName(), this.pencil);
-    // this.tools.set(this.remove.getName(), this.remove);
-    // this.selectedTool = this.selector;
+    this.tools.set(this.selector.getName(), this.selector);
+    this.tools.set(this.square.getName(), this.square);
+    this.tools.set(this.circle.getName(), this.circle);
+    this.tools.set(this.line.getName(), this.line);
+    this.tools.set(this.pencil.getName(), this.pencil);
+    this.tools.set(this.remove.getName(), this.remove);
+    this.selectedTool = this.selector;
   }
 
   ngOnInit(): void {
   }
 
-  click() {
-    this.drawingToolService.changeTool(this.selectedTool);
-    // var selected = this.tools.get(tool);
-    // this.selectedTool =  selected != undefined ? selected : this.selector; 
+  selectCurrentTool(tool: string) {
+    var selected = this.tools.get(tool);
+    this.selectedTool =  selected != undefined ? selected : this.selector; 
   }
 
 }
